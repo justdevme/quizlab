@@ -1,0 +1,390 @@
+.dashboardContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  height: 100vh;
+  position: fixed;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoImage {
+  width: 30px;
+  height: 30px;
+}
+
+.logoText {
+  font-weight: 600;
+  font-size: 18px;
+  color: #333;
+}
+
+.toggleBtn {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.toggleBtn:hover {
+  background-color: #f5f5f5;
+  color: #FFB300;
+}
+
+.sidebarNav {
+  flex: 1;
+  padding: 15px 0;
+  overflow-y: auto;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  margin-bottom: 5px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #666;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  gap: 10px;
+  border-radius: 4px;
+  margin: 0 10px;
+}
+
+.navLink:hover, .active .navLink {
+  background-color: #FFF8E1;
+  color: #FFB300;
+}
+
+.navLink i {
+  font-size: 18px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.sidebarFooter {
+  padding: 15px 20px;
+  border-top: 1px solid #eee;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.userAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.userName {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName span {
+  font-weight: 500;
+  color: #333;
+}
+
+.userName small {
+  color: #666;
+  font-size: 12px;
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-top: 10px;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.logoutBtn:hover {
+  color: #FFB300;
+}
+
+/* Main Content Styles */
+.mainContent {
+  flex: 1;
+  margin-left: 250px;
+  transition: all 0.3s ease;
+  min-height: 100vh;
+}
+
+.mainContent.expanded {
+  margin-left: 70px;
+}
+
+.contentArea {
+  padding: 30px;
+}
+
+/* Form Card Styles */
+.formCard {
+  background: #fff;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.cardHeader {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+}
+
+.cardHeader h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Options Section */
+.optionsSection {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.optionsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.optionsHeader h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.optionItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 12px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.optionLabel {
+  width: 30px;
+  height: 30px;
+  background-color: #FFF8E1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #FFB300;
+  flex-shrink: 0;
+}
+
+.optionItem input {
+  flex: 1;
+}
+
+.removeOptionBtn {
+  color: #dc3545;
+  padding: 5px;
+  transition: all 0.2s ease;
+}
+
+.removeOptionBtn:hover {
+  color: #bd2130;
+}
+
+/* Questions List */
+.questionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.questionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.questionItem:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.questionNumber {
+  width: 40px;
+  height: 40px;
+  background-color: #FFF8E1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #FFB300;
+  flex-shrink: 0;
+}
+
+.questionContent {
+  flex: 1;
+}
+
+.questionContent h4 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Form Actions */
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+  padding-bottom: 30px;
+}
+
+.formActions button {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Button Styles */
+.formCard button.btn-warning {
+  background-color: #FFB300;
+  border-color: #FFB300;
+  color: #fff;
+}
+
+.formCard button.btn-outline-warning {
+  color: #FFB300;
+  border-color: #FFB300;
+}
+
+.formCard button.btn-outline-warning:hover {
+  background-color: #FFB300;
+  color: #fff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .mainContent {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .formActions {
+    flex-direction: column;
+  }
+
+  .formActions button {
+    width: 100%;
+  }
+}
+
+.actionsWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 30px;
+  padding-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.uploadButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: #0bc84ad3;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.uploadButton:hover {
+  background-color: #FFB300;
+}

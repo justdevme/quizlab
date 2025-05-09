@@ -1,0 +1,26 @@
+.card {
+    background-color: #fffbea;
+    border: 1px solid #ffeb99;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
+  }
+  
+  .title {
+    color: #d4a700;
+    font-weight: 700;
+    font-size: 28px;
+  }
+  
+  .description {
+    color: #444;
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  
+  .stat {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #5a5a5a;
+  }
+  

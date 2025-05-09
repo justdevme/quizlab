@@ -1,0 +1,65 @@
+/* src/components/Navbar.module.css */
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 8%;
+    border-bottom: 1px solid #eee;
+    background-color: white;
+  }
+  
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .logo {
+    height: 40px;
+    object-fit: contain;
+  }
+  
+  .brand {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: black;
+    letter-spacing: -1px;
+  }
+  
+  
+  .menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .menu a:hover {
+    color: #000;
+  }
+  
+  .right .login {
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    border: 1px solid #FFD700;
+    color: #FFD700;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .right .login:hover {
+    background-color: #FFD700;
+    color: white;
+  }
+  

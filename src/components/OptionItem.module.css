@@ -1,0 +1,22 @@
+.option {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .option:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .selected {
+    background-color: #ffd700;
+    color: black;
+    font-weight: bold;
+  }
+  
