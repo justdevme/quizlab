@@ -6,9 +6,6 @@ A web-based quiz application that allows users to register, login, create quizze
 - **Express.js**: Framework for building the server-side of the app.
 - **MongoDB**: NoSQL database for storing user data, quizzes, and results.
 - **React**: Frontend framework for building the user interface.
-- **bcrypt**: Used for securely hashing passwords.
-- **JWT (JSON Web Tokens)**: Used for user authentication and authorization.
-- **Mongoose**: MongoDB object modeling for Node.js.
 ## Features
 
 ### User Features:
