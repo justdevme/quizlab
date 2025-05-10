@@ -1,0 +1,26 @@
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background-color: white;
+    border-right: 1px solid #e0e0e0;
+  }
+  
+  .navLink {
+    color: #333;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .navLink:hover {
+    background-color: #f8f9fa;
+    color: #000;
+  }
+  
+  .active {
+    background-color: #fff3cd; /* vàng nhạt */
+    color: #000;
+    font-weight: 600;
+  }
+  

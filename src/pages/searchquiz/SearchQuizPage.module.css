@@ -1,0 +1,90 @@
+.searchPageContainer {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding: 30px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.searchBarTop {
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+.pageTitle {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.quizCard {
+  border: none;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.quizCard:hover {
+  background-color: #fff8e1;
+  transform: translateY(-2px);
+}
+
+.quizCard .card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.infoIcons {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.infoIcons span i {
+  margin-right: 8px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.btnPreview,
+.btnDoQuiz {
+  border: 1px solid #FFD54F;
+  background-color: #fffbe6;
+  color: #333;
+  font-weight: 500;
+  border-radius: 30px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  transition: 0.2s ease;
+}
+
+.btnPreview:hover,
+.btnDoQuiz:hover {
+  background-color: #ffe680;
+  color: #000;
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.authorAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}

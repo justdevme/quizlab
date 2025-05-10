@@ -1,0 +1,200 @@
+/* src/pages/auth/Auth.module.css */
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../assets/register-background.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px 20px;
+}
+
+  
+  .header {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .title {
+    font-family: 'Inter', sans-serif;
+    font-size: 60px;
+    font-weight: 800;
+    color: #000000;
+    margin-top: 50px;
+    letter-spacing: -2.5px;
+  }
+  
+  .logo {
+    width: 50px;
+    height: 50px;
+    background-image: url("../../assets/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 52px;
+    margin-left: 10px;
+  }
+  
+  .formWrapper {
+    width: 525px;
+    min-height: 600px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+    margin-top: 0;
+  }
+  
+  
+  .heading {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #000;
+    letter-spacing: -1px;
+  }
+  
+  .subheading {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .form {
+    width: 100%;
+  }
+  
+  .inputGroup {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  select {
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  input:focus,
+  select:focus {
+    border-color: #FFD700;
+    outline: none;
+  }
+  
+  .password-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .closeeye-icon,
+  .openeye-icon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.6;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .checkboxRow {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .checkboxRow input[type="checkbox"] {
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+  }
+  
+  .checkboxRow label {
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+  
+  .submitButton {
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    padding: 14px;
+    background-color: #FFD700;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submitButton:hover {
+    background-color: #F3C200;
+  }
+  
+  .footerText {
+    font-family: 'Inter', sans-serif;
+    margin-top: 25px;
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .footerText span {
+    color: #666;
+  }
+  
+  .footerText a {
+    font-family: 'Inter', sans-serif;
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 5px;
+  }
+  
+  .footerText a:hover {
+    text-decoration: underline;
+  }
+  
