@@ -1,10 +1,11 @@
+import { quizService } from "../services/quizService.js";
 import { resultService } from "../services/resultService.js";
 
 const submitQuiz = async (req, res) => {
     try {
       const quizId = req.params.quizId;
       const { userAnswers, duration } = req.body;
-  
+      await quizService.incrementQuizParticipants(quizId)
       if (!userAnswers || typeof duration !== 'number') {
         return res.status(400).json({ message: 'answers and duration are required' });
       }
