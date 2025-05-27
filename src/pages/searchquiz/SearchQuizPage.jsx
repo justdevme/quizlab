@@ -11,6 +11,7 @@ const quizzes = [
     questions: 15,
     views: 120,
     likes: 18,
+    type: "Trắc nghiệm",
     author: { name: "Jason", avatar: "/" }
   },
   {
@@ -19,6 +20,7 @@ const quizzes = [
     questions: 20,
     views: 90,
     likes: 25,
+    type: "Trắc nghiệm",
     author: { name: "chichu206", avatar: "/" }
   },
   {
@@ -27,6 +29,7 @@ const quizzes = [
     questions: 10,
     views: 45,
     likes: 7,
+    type: "Trắc nghiệm",
     author: { name: "hoangNg", avatar: "/" }
   },
   {
@@ -35,6 +38,7 @@ const quizzes = [
     questions: 12,
     views: 64,
     likes: 12,
+    type: "Trắc nghiệm",
     author: { name: "phLing77", avatar: "/" }
   },
   {
@@ -43,6 +47,7 @@ const quizzes = [
     questions: 25,
     views: 200,
     likes: 35,
+    type: "Trắc nghiệm",
     author: { name: "TrangTr18", avatar: "/" }
   },
   {
@@ -51,13 +56,24 @@ const quizzes = [
     questions: 18,
     views: 99,
     likes: 16,
+    type: "Trắc nghiệm",
     author: { name: "IvanGK", avatar: "/" }
+  },
+  {
+    id: 7,
+    title: "Viết đoạn văn cảm nghĩ",
+    questions: 1,
+    views: 5,
+    likes: 2,
+    type: "Tự luận",
+    author: { name: "admin", avatar: "/" }
   }
 ];
 
 export default function Searching() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedQuiz, setSelectedQuiz] = useState(null);
+  const [liked, setLiked] = useState({});
   const navigate = useNavigate();
 
   const handlePreview = (quiz) => {
@@ -70,6 +86,10 @@ export default function Searching() {
     } else {
       alert("Chỉ bài Toán lớp 3 có thể làm bài trong bản demo.");
     }
+  };
+
+  const toggleLike = (quizId) => {
+    setLiked((prev) => ({ ...prev, [quizId]: !prev[quizId] }));
   };
 
   const filtered = quizzes.filter((quiz) =>
@@ -96,15 +116,19 @@ export default function Searching() {
               <Card.Body>
                 <Card.Title>{quiz.title}</Card.Title>
 
+                <div className={styles.typeBadge}>
+                  <i className="ri-file-list-2-line"></i> {quiz.type}
+                </div>
+
                 <div className={styles.infoIcons}>
                   <span>
-                    <i className="bi bi-pencil-fill"></i> {quiz.questions} câu hỏi
+                    <i className="ri-question-answer-line"></i> {quiz.questions} câu hỏi
                   </span>
                   <span>
-                    <i className="bi bi-eye-fill"></i> {quiz.views} lượt làm
+                    <i className="ri-eye-line"></i> {quiz.views} lượt làm
                   </span>
                   <span>
-                    <i className="bi bi-heart-fill text-danger"></i> {quiz.likes} lượt thích
+                    <i className="ri-heart-3-fill text-danger"></i> {quiz.likes} lượt thích
                   </span>
                 </div>
 
@@ -122,6 +146,12 @@ export default function Searching() {
                     variant="warning"
                   >
                     Làm bài
+                  </Button>
+                  <Button
+                    className={styles.btnLike}
+                    onClick={() => toggleLike(quiz.id)}
+                  >
+                    <i className={liked[quiz.id] ? "ri-heart-fill text-danger" : "ri-heart-line"}></i>
                   </Button>
                 </div>
 

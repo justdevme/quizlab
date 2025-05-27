@@ -11,8 +11,12 @@ import CreatePage from "./pages/create/CreatePage";
 import Dashboard from "./pages/dashboard/Dashboard";
 import SearchQuizPage from "./pages/searchquiz/SearchQuizPage";
 import AdminPage from "./pages/admin/AdminPage";
-import PreviewModal from "./pages/dashboard/PreviewModal"; // ✅ Thêm import modal
+import PreviewModal from "./pages/dashboard/PreviewModal"; // Thêm import modal
 import SideBar from "./components/SideBar";
+import CreatedQuizzesPage from "./pages/create/CreatedQuizzesPage";
+import CreateEssayQuiz from "./pages/create/CreateEssayQuiz";
+import UserProfilePage from "./pages/user/UserProfilePage";
+
 
 // Tạo layout có sidebar
 function LayoutWithSidebar() {
@@ -23,11 +27,14 @@ function LayoutWithSidebar() {
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/search" element={<SearchQuizPage />} />
-          <Route path="/create" element={<CreatePage />} />
+          <Route path="/create" element={<CreatedQuizzesPage />} />         {/* Danh sách bài quiz */}
+          <Route path="/create/multiple" element={<CreatePage />} />        {/* Tạo trắc nghiệm */}
+          <Route path="/create/essay" element={<CreateEssayQuiz />} />      {/* Tạo tự luận */}
           <Route path="/result" element={<ResultPage />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/take-quiz" element={<TakeQuizPage />} />
-          <Route path="/preview" element={<PreviewModal quiz={null} />} /> {/* ✅ Tạm route độc lập */}
+          <Route path="/preview" element={<PreviewModal quiz={null} />} /> 
+          <Route path="/user/profile" element={<UserProfilePage />} />
         </Routes>
       </div>
     </div>

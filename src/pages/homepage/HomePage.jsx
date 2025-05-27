@@ -11,7 +11,7 @@ export default function HomePage() {
         <Navbar expand="lg" className={styles.navbar} fixed="top">
           <Container>
             <Navbar.Brand as={Link} to="/homepage" className={styles.navbarBrand}>
-              <img src="../assets" alt="QuizLab" className={styles.logo} />
+              <img src="/assets/logo.png" alt="QuizLab" className={styles.logo} />
 
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -254,7 +254,6 @@ export default function HomePage() {
                   <h4 className={styles.footerTitle}>Liên kết nhanh</h4>
                   <ul className={styles.footerMenu}>
                     <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
                   </ul>
                 </div>
               </Col>

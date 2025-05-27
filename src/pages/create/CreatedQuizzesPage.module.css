@@ -1,20 +1,22 @@
-.searchPageContainer {
+
+.createdContainer {
   background-color: #f8f9fa;
   min-height: 100vh;
   padding: 30px;
   font-family: 'Roboto', sans-serif;
 }
 
-.searchBarTop {
-  margin-bottom: 30px;
-  max-width: 500px;
-}
-
 .pageTitle {
   font-size: 1.6rem;
   font-weight: 600;
   color: #333;
-  margin-bottom: 20px;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 .quizCard {
@@ -100,4 +102,18 @@
   border-radius: 20px;
   margin-bottom: 10px;
   font-weight: 500;
+}
+
+.yellowButton {
+  background-color: #FFD54F;
+  border: none;
+  color: #333;
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 8px 16px;
+}
+
+.yellowButton:hover {
+  background-color: #FFCA28;
+  color: #333;
 }

@@ -3,6 +3,7 @@
     height: 100vh;
     background-color: white;
     border-right: 1px solid #e0e0e0;
+    
   }
   
   .navLink {
@@ -24,3 +25,43 @@
     font-weight: 600;
   }
   
+  .userInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.username {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.sidebarAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.userName {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.profileLink {
+  text-decoration: none;
+}
+

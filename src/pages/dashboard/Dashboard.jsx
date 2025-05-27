@@ -44,10 +44,10 @@ export default function Dashboard() {
           {location.pathname === "/dashboard" && (
             <div className={styles.dashboardHome}>
               <div className={styles.statsRow}>
-                <StatCard icon="file-earmark-text" value="300" label="Bài kiểm tra đã tạo" />
-                <StatCard icon="people" value="450" label="Người tham gia" />
-                <StatCard icon="check-circle" value="250" label="Bài đã hoàn thành" />
-                <StatCard icon="people" value="30" label="Trực tuyến" />
+                <StatCard icon="ri-file-list-2-line" value="300" label="Bài kiểm tra đã tạo" />
+                <StatCard icon="ri-group-line" value="450" label="Người tham gia" />
+                <StatCard icon="ri-checkbox-circle-line" value="250" label="Bài đã hoàn thành" />
+                <StatCard icon="ri-user-follow-line" value="30" label="Trực tuyến" />
               </div>
 
               <div className={styles.dashboardRow}>
@@ -67,15 +67,15 @@ export default function Dashboard() {
                         <div className={styles.quizInfo}>
                           <h3>{quiz.title}</h3>
                           <div className={styles.quizMeta}>
-                            <span><i className="bi bi-question-circle"></i> {quiz.questions} câu hỏi</span>
-                            <span><i className="bi bi-people"></i> {quiz.participants} người tham gia</span>
-                            <span><i className="bi bi-calendar3"></i> {quiz.date}</span>
+                            <span><i className="ri-question-answer-line"></i> {quiz.questions} câu hỏi</span>
+                            <span><i className="ri-user-line"></i> {quiz.participants} người tham gia</span>
+                            <span><i className="ri-calendar-line"></i> {quiz.date}</span>
                           </div>
                         </div>
                         <div className={styles.quizActions}>
-                          <Button variant="light" size="sm"><i className="bi bi-pencil"></i></Button>
-                          <Button variant="light" size="sm"><i className="bi bi-share"></i></Button>
-                          <Button variant="light" size="sm"><i className="bi bi-three-dots"></i></Button>
+                          <Button variant="light" size="sm"><i className="ri-edit-line"></i></Button>
+                          <Button variant="light" size="sm"><i className="ri-share-line"></i></Button>
+                          <Button variant="light" size="sm"><i className="ri-more-2-line"></i></Button>
                         </div>
                       </div>
                     ))}
@@ -97,9 +97,9 @@ export default function Dashboard() {
                     ].map((activity, index) => (
                       <div key={index} className={styles.activityItem}>
                         <div className={styles.activityIcon}>
-                          {activity.action === "đã hoàn thành" && <i className="bi bi-check-circle-fill"></i>}
-                          {activity.action === "đã bắt đầu" && <i className="bi bi-play-circle-fill"></i>}
-                          {activity.action === "đã đánh giá" && <i className="bi bi-star-fill"></i>}
+                          {activity.action === "đã hoàn thành" && <i className="ri-checkbox-circle-fill"></i>}
+                          {activity.action === "đã bắt đầu" && <i className="ri-play-circle-fill"></i>}
+                          {activity.action === "đã đánh giá" && <i className="ri-star-fill"></i>}
                         </div>
                         <div className={styles.activityInfo}>
                           <p>
@@ -136,7 +136,7 @@ function StatCard({ icon, value, label }) {
   return (
     <div className={styles.statCard}>
       <div className={styles.statIcon}>
-        <i className={`bi bi-${icon}`}></i>
+        <i className={icon}></i>
       </div>
       <div className={styles.statInfo}>
         <h3>{value}</h3>

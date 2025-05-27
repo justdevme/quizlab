@@ -109,4 +109,3 @@ quiz-app/
 - Add real-time features (e.g., multiplayer quizzes).
 - Implement more advanced AI features for generating personalized quizzes.
 - Add support for more question types (e.g., drag-and-drop, fill-in-the-blank).
-
