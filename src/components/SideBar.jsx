@@ -1,23 +1,24 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styles from "./Sidebar.module.css";
+import styles from "./SideBar.module.css";
+import userLogo from "../assets/ava.png";
+import logo from "../assets/logo.png";
 
 const sidebarLinks = [
   { name: "Dashboard", href: "/dashboard", icon: "ri-dashboard-line" },
   { name: "Tạo quiz", href: "/create", icon: "ri-edit-box-line" },
-  { name: "Làm quiz", href: "/take-quiz", icon: "ri-file-list-3-line" },
-  { name: "Kết quả", href: "/result", icon: "ri-bar-chart-2-line" },
-  { name: "Chấm điểm", href: "/grade", icon: "ri-checkbox-circle-line" },
-  { name: "Trợ lý AI", href: "/ai-assistant", icon: "ri-robot-2-line" },
-  { name: "Đăng nhập", href: "/sign-in", icon: "ri-login-box-line" },
-  { name: "Đăng ký", href: "/sign-up", icon: "ri-user-add-line" },
-  { name: "Landing", href: "/homepage", icon: "ri-home-3-line" },
+  { name: "Admin", href: "/admin", icon: "ri-settings-3-line" },
+  { name: "Giới thiệu", href: "/homepage", icon: "ri-home-3-line" },
+  { name: "Đăng xuất", href: "/sign-in", icon: "ri-login-box-line" },
 ];
 
 function SideBar() {
   return (
     <div className={`d-flex flex-column p-3 ${styles.sidebar}`}>
-      <h4 className="text-center mb-4">QuizLab</h4>
+      <div className={styles.sidebarHeader}>
+        <img src={logo} alt="QuizLab Logo" className={styles.logo} />
+        <h4 className={styles.brandName}>QuizLab</h4>
+      </div>
 
       <ul className="nav nav-pills flex-column">
         {sidebarLinks.map((link) => (
@@ -35,13 +36,22 @@ function SideBar() {
         ))}
       </ul>
 
-      
-      <li className="nav-item mt-4 text-center">
-        <NavLink to="/user/profile" className={styles.profileLink}>
-          <img src="/avatars/1.png" alt="avatar" className={styles.sidebarAvatar} />
-          <div className={styles.userName}>User</div>
+      {/* User Profile Section - Cải thiện */}
+      <div className={styles.userProfileSection}>
+        <NavLink to="/user/profile" className={styles.userProfileLink}>
+          <div className={styles.userProfileCard}>
+            <div className={styles.avatarContainer}>
+              <img src={userLogo} alt="User Avatar" className={styles.userAvatar} />
+              <div className={styles.onlineIndicator}></div>
+            </div>
+            <div className={styles.userInfo}>
+              <div className={styles.userName}>John</div>
+              <div className={styles.userRole}>User</div>
+            </div>
+            <i className={`ri-arrow-right-s-line ${styles.profileArrow}`}></i>
+          </div>
         </NavLink>
-      </li>
+      </div>
     </div>
   );
 }

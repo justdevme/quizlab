@@ -1,0 +1,165 @@
+/* Admin Dashboard Container */
+.adminDashboardContainer {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.fullHeightRow {
+  width: 100%;
+  margin: 0;
+}
+
+/* Main Content */
+.mainContent {
+  padding: 30px;
+  background-color: #f8f9fa;
+}
+
+.pageHeader {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.pageHeader h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+  text-align: center;
+}
+
+/* User Management Section */
+.userManagementSection {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+}
+
+/* Data Table */
+.dataTable {
+  margin-bottom: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.dataTable thead th {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: 600;
+  border: none;
+  padding: 15px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.dataTable tbody td {
+  padding: 15px;
+  vertical-align: middle;
+  text-align: center;
+  border-color: #e9ecef;
+}
+
+.dataTable tbody tr:hover {
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease;
+}
+
+/* Edit Button với màu #FFD300 */
+.editButton {
+  background-color: #FFD300 !important;
+  border-color: #FFD300 !important;
+  color: #2c3e50 !important;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.editButton:hover {
+  background-color: #e6be00 !important;
+  border-color: #e6be00 !important;
+  color: #2c3e50 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(255, 211, 0, 0.3);
+}
+
+.editButton:focus {
+  background-color: #FFD300 !important;
+  border-color: #FFD300 !important;
+  color: #2c3e50 !important;
+  box-shadow: 0 0 0 0.2rem rgba(255, 211, 0, 0.25);
+}
+
+/* Save Button với màu #FFD300 */
+.saveButton {
+  background-color: #FFD300 !important;
+  border-color: #FFD300 !important;
+  color: #2c3e50 !important;
+  font-weight: 500;
+}
+
+.saveButton:hover {
+  background-color: #e6be00 !important;
+  border-color: #e6be00 !important;
+  color: #2c3e50 !important;
+}
+
+.saveButton:focus {
+  background-color: #FFD300 !important;
+  border-color: #FFD300 !important;
+  color: #2c3e50 !important;
+  box-shadow: 0 0 0 0.2rem rgba(255, 211, 0, 0.25);
+}
+
+/* Modal Improvements */
+.modal-body {
+  padding: 25px;
+}
+
+.modal-footer {
+  padding: 20px 25px;
+  border-top: 1px solid #e9ecef;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 20px 15px;
+  }
+  
+  .pageHeader h1 {
+    font-size: 1.8rem;
+  }
+  
+  .userManagementSection {
+    padding: 20px;
+  }
+  
+  .dataTable {
+    font-size: 0.9rem;
+  }
+  
+  .dataTable thead th,
+  .dataTable tbody td {
+    padding: 10px 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .pageHeader h1 {
+    font-size: 1.6rem;
+  }
+  
+  .userManagementSection {
+    padding: 15px;
+  }
+  
+  .dataTable {
+    font-size: 0.85rem;
+  }
+}

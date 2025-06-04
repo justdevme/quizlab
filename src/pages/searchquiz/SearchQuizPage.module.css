@@ -1,103 +1,152 @@
-.searchPageContainer {
-  background-color: #f8f9fa;
+/* Overall Page Layout */
+.searchPageLayout {
+  background-color: #f8f9fa; /* Màu nền chung giống Dashboard */
   min-height: 100vh;
-  padding: 30px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif; /* Font chung giống Dashboard */
 }
 
-.searchBarTop {
-  margin-bottom: 30px;
-  max-width: 500px;
+/* Header Styles - Based on Dashboard */
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  /* margin-bottom: 20px; /* Có thể thêm nếu muốn khoảng cách */
 }
 
-.pageTitle {
-  font-size: 1.6rem;
+.pageHeaderLeft {
+  display: flex;
+  align-items: center;
+}
+
+/* Optional: Title in header if you decide to add one */
+.headerPageTitle {
+  font-size: 1.5rem;
   font-weight: 600;
   color: #333;
-  margin-bottom: 20px;
+  margin: 0;
 }
 
-.quizCard {
+.pageHeaderRight {
+  display: flex;
+  align-items: center;
+}
+
+.headerSearchWrapper {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5; /* Màu nền thanh search của Dashboard */
+  border-radius: 20px;
+  padding: 8px 15px;
+  /* margin-right: 20px; /* Khoảng cách nếu có các element khác bên phải */
+}
+
+.headerSearchWrapper i { /* Style cho icon nếu có */
+  color: #666;
+  margin-right: 10px;
+}
+
+.headerSearchBar {
+  border: none;
+  background: none;
+  outline: none;
+  color: #333;
+  width: 200px; /* Hoặc width bạn muốn */
+  font-size: 14px; /* Font size của Dashboard */
+}
+
+.headerSearchBar::placeholder {
+  color: #999; /* Màu placeholder của Dashboard */
+}
+
+/* Main Content Area */
+.mainContentArea {
+  padding: 30px;
+}
+
+.contentTitle {
+  font-size: 1.8rem; /* Kích thước tiêu đề nội dung */
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* Quiz Card Styles - Giữ nguyên các tùy chỉnh của bạn với tên class mới */
+.quizCardItem {
   border: none;
   border-radius: 12px;
   background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, background-color 0.2s ease;
+  height: 100%; /* Để các card có chiều cao bằng nhau trong Row */
 }
 
-.quizCard:hover {
-  background-color: #fff8e1;
-  transform: translateY(-2px);
+.quizCardItem:hover {
+  background-color: #fff8e1; /* Màu hover bạn đã chọn */
+  transform: translateY(-3px); /* Hiệu ứng hover bạn đã chọn */
 }
 
-.quizCard .card-title {
-  font-size: 1.1rem;
+.quizCardTitle {
+  font-size: 1.1rem; /* Giữ nguyên style của bạn */
   font-weight: 600;
   color: #333;
-}
-
-.infoIcons {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 12px;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.infoIcons span i {
-  margin-right: 8px;
-}
-
-.buttonGroup {
-  display: flex;
-  gap: 10px;
   margin-bottom: 10px;
 }
 
-.btnPreview,
-.btnDoQuiz,
-.btnLike {
-  border: 1px solid #FFD54F;
-  background-color: #fffbe6;
+.quizCardTypeBadge {
+  display: inline-block;
+  background-color: #ffe082; /* Giữ nguyên style của bạn */
+  color: #333;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  border-radius: 20px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.quizCardButtonGroup {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px; /* Tăng khoảng cách dưới button group */
+}
+
+.quizCardButtonDo,
+.quizCardButtonLike {
+  border: 1px solid #FFD54F; /* Giữ nguyên style của bạn */
+  background-color: #fffbe6; /* Giữ nguyên style của bạn */
   color: #333;
   font-weight: 500;
   border-radius: 30px;
   padding: 6px 14px;
   font-size: 0.85rem;
-  transition: 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.btnPreview:hover,
-.btnDoQuiz:hover,
-.btnLike:hover {
-  background-color: #ffe680;
+.quizCardButtonDo:hover,
+.quizCardButtonLike:hover {
+  background-color: #ffe680; /* Giữ nguyên style của bạn */
   color: #000;
 }
 
-.authorInfo {
+.quizCardButtonLike i {
+  font-size: 1rem; /* Điều chỉnh kích thước icon trái tim nếu cần */
+}
+
+.quizCardAuthorInfo {
   display: flex;
   align-items: center;
-  margin-top: 6px;
+  margin-top: 10px; /* Giảm margin top một chút */
   gap: 8px;
   font-size: 0.85rem;
   color: #555;
 }
 
-.authorAvatar {
+.quizCardAuthorAvatar {
   width: 28px;
   height: 28px;
   border-radius: 50%;
   object-fit: cover;
-}
-
-.typeBadge {
-  display: inline-block;
-  background-color: #ffe082;
-  color: #333;
-  padding: 4px 10px;
-  font-size: 0.75rem;
-  border-radius: 20px;
-  margin-bottom: 10px;
-  font-weight: 500;
+  border: 1px solid #eee; /* Thêm border nhẹ cho avatar */
 }

@@ -1,17 +1,19 @@
-import React from "react";
-import styles from "./HomePage.module.css";
-import { Container, Row, Col, Button, Card, Navbar, Nav, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React from "react"; 
+import styles from "./HomePage.module.css"; 
+import { Container, Row, Col, Button, Card, Navbar, Nav, NavDropdown } from "react-bootstrap"; 
+import { Link } from "react-router-dom"; 
+import logo from "../../assets/logo.png"; 
 
-export default function HomePage() {
-  return (
-    <div className={styles.homePage}>
-      {/* Header/Navigation */}
-      <header className={styles.header}>
-        <Navbar expand="lg" className={styles.navbar} fixed="top">
-          <Container>
-            <Navbar.Brand as={Link} to="/homepage" className={styles.navbarBrand}>
-              <img src="/assets/logo.png" alt="QuizLab" className={styles.logo} />
+export default function HomePage() { 
+  return ( 
+    <div className={styles.homePage}> 
+      {/* Header/Navigation */} 
+      <header className={styles.header}> 
+        <Navbar expand="lg" className={styles.navbar} fixed="top"> 
+          <Container> 
+            <Navbar.Brand as={Link} to="/homepage" className={styles.navbarBrand}> 
+               <img src={logo} alt="QuizLab" className={styles.logo} />
+                <span className={styles.brandText}>QuizLab</span>
 
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -21,9 +23,9 @@ export default function HomePage() {
                 <Nav.Link as={Link} to="/about" className={styles.navLink}>Giới thiệu</Nav.Link>
                 
               </Nav>
-              <div className={styles.navButtons}>
-                <Button variant="outline-warning" className={styles.loginBtn}>Đăng nhập</Button>
-              </div>
+              <Link to="/dashboard">
+              <Button variant="outline-warning" className={styles.loginBtn}>Bắt đầu</Button>
+              </Link>
             </Navbar.Collapse>
           </Container>
         </Navbar>
@@ -51,7 +53,6 @@ export default function HomePage() {
             </Col>
             <Col lg={6} md={12}>
               <div className={styles.heroImage}>
-                <img src="/hero-image.png" alt="Quiz Platform" className={styles.heroImg} />
               </div>
             </Col>
           </Row>

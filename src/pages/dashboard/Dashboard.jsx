@@ -1,7 +1,102 @@
 import React, { useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { Line } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import styles from "./Dashboard.module.css";
+
+// Đăng ký Chart.js components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+// Data cho biểu đồ hiệu suất
+const performanceChartData = {
+  labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6'],
+  datasets: [
+    {
+      label: 'Điểm trung bình',
+      data: [75, 82, 78, 85, 88, 92],
+      borderColor: '#007bff',
+      backgroundColor: 'rgba(0, 123, 255, 0.1)',
+      tension: 0.4,
+      fill: true,
+    },
+    {
+      label: 'Tỷ lệ hoàn thành (%)',
+      data: [65, 70, 75, 80, 85, 90],
+      borderColor: '#28a745',
+      backgroundColor: 'rgba(40, 167, 69, 0.1)',
+      tension: 0.4,
+      fill: true,
+    },
+    {
+      label: 'Thời gian trung bình (phút)',
+      data: [25, 23, 20, 18, 16, 15],
+      borderColor: '#ffc107',
+      backgroundColor: 'rgba(255, 193, 7, 0.1)',
+      tension: 0.4,
+      fill: true,
+    }
+  ],
+};
+
+const chartOptions = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      position: 'top',
+      labels: {
+        usePointStyle: true,
+        padding: 20,
+      },
+    },
+    title: {
+      display: true,
+      text: 'Bản đồ hiệu suất theo tháng',
+      font: {
+        size: 18,
+        weight: 'bold',
+      },
+      padding: 20,
+    },
+  },
+  scales: {
+    y: {
+      beginAtZero: true,
+      grid: {
+        color: '#f1f3f4',
+      },
+      ticks: {
+        color: '#6c757d',
+      },
+    },
+    x: {
+      grid: {
+        color: '#f1f3f4',
+      },
+      ticks: {
+        color: '#6c757d',
+      },
+    },
+  },
+};
 
 export default function Dashboard() {
   const location = useLocation();
@@ -54,7 +149,6 @@ export default function Dashboard() {
                 <div className={styles.recentQuizzes}>
                   <div className={styles.cardHeader}>
                     <h2>Bài kiểm tra gần đây</h2>
-                    <Button variant="outline-primary" size="sm">Xem tất cả</Button>
                   </div>
                   <div className={styles.quizList}>
                     {[
@@ -73,9 +167,7 @@ export default function Dashboard() {
                           </div>
                         </div>
                         <div className={styles.quizActions}>
-                          <Button variant="light" size="sm"><i className="ri-edit-line"></i></Button>
                           <Button variant="light" size="sm"><i className="ri-share-line"></i></Button>
-                          <Button variant="light" size="sm"><i className="ri-more-2-line"></i></Button>
                         </div>
                       </div>
                     ))}
@@ -85,12 +177,11 @@ export default function Dashboard() {
                 <div className={styles.activityFeed}>
                   <div className={styles.cardHeader}>
                     <h2>Hoạt động gần đây</h2>
-                    <Button variant="outline-primary" size="sm">Xem tất cả</Button>
                   </div>
                   <div className={styles.activityList}>
                     {[
                       { user: "B", action: "đã hoàn thành", quiz: "UI Design Fundamentals", time: "2 giờ trước", score: "85%" },
-                      { user: "C", action: "đã bắt đầu", quiz: "React Basics Quiz", time: "3 giờ trước" },
+                      { user: "C", action: "đã hoàn thành", quiz: "React Basics Quiz", time: "3 giờ trước" },
                       { user: "D", action: "đã hoàn thành", quiz: "JavaScript Advanced Concepts", time: "5 giờ trước", score: "92%" },
                       { user: "E", action: "đã hoàn thành", quiz: "React Basics Quiz", time: "1 giờ trước", score: "36%" },
                       { user: "F", action: "đã hoàn thành", quiz: "UI Design Fundamentals", time: "1 ngày trước", score: "78%" },
@@ -114,13 +205,14 @@ export default function Dashboard() {
                 </div>
               </div>
 
+              {/* Bản đồ hiệu suất */}
               <div className={styles.dashboardRow}>
                 <div className={styles.performanceChart}>
                   <div className={styles.cardHeader}>
-                    <h2>Phân tích hiệu suất</h2>
+                    <h2>Bản đồ hiệu suất</h2>
                   </div>
-                  <div className={styles.chartPlaceholder}>
-                    <p>Biểu đồ phân tích hiệu suất được hiển thị ở đây (sử dụng Chart.js hoặc Recharts sau này)</p>
+                  <div className={styles.chartContainer}>
+                    <Line data={performanceChartData} options={chartOptions} />
                   </div>
                 </div>
               </div>

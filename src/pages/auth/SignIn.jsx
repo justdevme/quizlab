@@ -9,23 +9,23 @@ export default function SignIn() {
   return (
     <div className={styles.container}>
       <main className={styles.formWrapper}>
-        <h2 className={styles.heading}>Sign in</h2>
-        <p className={styles.subheading}>Please login to continue to your account.</p>
+        <h2 className={styles.heading}>Đăng nhập</h2>
+        <p className={styles.subheading}>Đăng nhập để tiếp tục quiz</p>
 
         <form className={styles.form}>
           <div className={styles.inputGroup}>
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">Tên người dùng</label>
             <input type="text" id="username" required />
           </div>
 
           <div className={styles.inputGroup}>
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Mật khẩu</label>
             <PasswordInput />
           </div>
 
           <div className={styles.checkboxRow}>
             <input type="checkbox" id="remember" />
-            <label htmlFor="remember">Keep me logged in</label>
+            <label htmlFor="remember">Ghi nhớ mật khẩu</label>
           </div>
 
           <button
@@ -33,17 +33,17 @@ export default function SignIn() {
             className={styles.submitButton}
             onClick={() => navigate("/dashboard")}
           >
-            Sign in
+            Đăng nhập
           </button>
         </form>
 
         <div className={styles.footerText}>
-          <span>Need an account?</span>
-          <Link to="/sign-up">Create one</Link>
+          <span>Chưa có tài khoản?</span>
+          <Link to="/sign-up">Đăng ký</Link>
         </div>
 
         <div className={styles.footerText}>
-          <Link to="/password-recovery">Forgot your password?</Link>
+          <Link to="/password-recovery">Quên mật khẩu?</Link>
         </div>
       </main>
     </div>

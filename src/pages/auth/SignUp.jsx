@@ -9,17 +9,17 @@ export default function SignUp() {
       
 
       <main className={styles.formWrapper}>
-        <h2 className={styles.heading}>Sign up</h2>
-        <p className={styles.subheading}>Challenge your knowledge with QuizLab!</p>
+        <h2 className={styles.heading}>Đăng nhập</h2>
+        <p className={styles.subheading}>Thử thách cùng Quizlab</p>
 
         <form className={styles.form}>
           <div className={styles.inputGroup}>
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">Tên người dùng</label>
             <input type="text" id="username" required />
           </div>
 
           <div className={styles.inputGroup}>
-            <label htmlFor="dob">Date of Birth</label>
+            <label htmlFor="dob">Ngày sinh</label>
             <input type="text" id="dob" placeholder="dd/mm/yyyy" required />
           </div>
 
@@ -29,9 +29,9 @@ export default function SignUp() {
           </div>
 
           <div className={styles.inputGroup}>
-            <label htmlFor="security-question">Security Question (for password recovery)</label>
+            <label htmlFor="security-question">Câu hỏi bảo mật (nhằm khôi phục mật khẩu)</label>
             <select id="security-question" required>
-              <option value="" disabled selected>Select a topic</option>
+              <option value="" disabled selected>Chọn chủ đề</option>
               <option value="train">Tàu hỏa</option>
               <option value="swimming_pool">Bể bơi</option>
               <option value="apple">Quả táo</option>
@@ -42,12 +42,12 @@ export default function SignUp() {
             </select>
           </div>
 
-          <button type="submit" className={styles.submitButton}>Sign up</button>
+          <button type="submit" className={styles.submitButton}>Đăng ký</button>
         </form>
 
         <div className={styles.footerText}>
-          <span>Already have an account?</span>
-          <Link to="/sign-in">Sign in</Link>
+          <span>Đã có tài khoản</span>
+          <Link to="/sign-in">Đăng nhập</Link>
         </div>
       </main>
     </div>

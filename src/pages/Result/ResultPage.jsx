@@ -1,231 +1,185 @@
 import React from 'react';
-import { Container, Card, Button, Badge } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import styles from './ResultPage.module.css';
+import { ProgressBar } from 'react-bootstrap'; // Sử dụng ProgressBar của react-bootstrap
 
 export default function ResultPage() {
-  const resultData = {
-    totalQuestions: 5,
-    correctAnswers: 3,
-    wrongAnswers: 2,
-    timeTaken: "10p20s",
-    completedAt: "01/04/2025 15:00",
-    questions: [
-      {
-        id: 1,
-        text: "Tính giá trị của biểu thức 2x + 3 khi x = 5",
-        type: "single",
-        options: [
-          { id: "a", text: "10" },
-          { id: "b", text: "13" },
-          { id: "c", text: "15" },
-          { id: "d", text: "18" }
-        ],
-        correctAnswer: "b",
-        userAnswer: "b",
-        isCorrect: true
-      },
-      {
-        id: 2,
-        text: "Phương trình x² - 5x + 6 = 0 có nghiệm là:",
-        type: "single",
-        options: [
-          { id: "a", text: "x = 2 và x = 3" },
-          { id: "b", text: "x = -2 và x = -3" },
-          { id: "c", text: "x = 2 và x = -3" },
-          { id: "d", text: "x = -2 và x = 3" }
-        ],
-        correctAnswer: "a",
-        userAnswer: "a",
-        isCorrect: true
-      },
-      {
-        id: 3,
-        text: "Chọn các số là số nguyên tố:",
-        type: "multiple",
-        options: [
-          { id: "a", text: "2" },
-          { id: "b", text: "4" },
-          { id: "c", text: "7" },
-          { id: "d", text: "9" },
-          { id: "e", text: "11" }
-        ],
-        correctAnswer: ["a", "c", "e"],
-        userAnswer: ["a", "c", "d", "e"],
-        isCorrect: false
-      },
-      {
-        id: 4,
-        text: "Diện tích hình tròn có bán kính r = 5cm là bao nhiêu? (Lấy π = 3.14)",
-        type: "essay",
-        correctAnswer: "78.5",
-        userAnswer: "78.5",
-        isCorrect: true
-      },
-      {
-        id: 5,
-        text: "1 + 1 = ?",
-        type: "essay",
-        correctAnswer: "2",
-        userAnswer: "3",
-        isCorrect: false
-      }
-    ]
+  const location = useLocation();
+  // Lấy dữ liệu từ TakeQuizPage, nếu không có thì dùng mock data
+  const resultData = location.state || {
+    totalQuestions: 20, // Giả sử có 20 câu như hình
+    correctAnswers: 6,
+    wrongAnswers: 14,
+    unansweredQuestions: 0,
+    timeTaken: "00:00:55",
+    completedAt: "16:00 03/06/2025",
+    score: 3, // 6/20 * 10 = 3
+    percentage: "30%",
+    questions: Array(20).fill(null).map((_, i) => ({
+      id: i + 1,
+      text: `Đây là nội dung câu hỏi số ${i + 1}. Câu hỏi này có thể dài hoặc ngắn tùy thuộc vào đề bài. `,
+      type: (i % 5 === 3) ? "text" : (i % 5 === 2) ? "multiple" : "single", // Xen kẽ các loại câu hỏi
+      options: (i % 5 !== 3) ? [
+        { id: "a", text: "Phương án A cho câu " + (i+1) },
+        { id: "b", text: "Phương án B cho câu " + (i+1) },
+        { id: "c", text: "Phương án C cho câu " + (i+1) },
+        { id: "d", text: "Phương án D cho câu " + (i+1) }
+      ] : [],
+      correctAnswer: (i % 5 === 3) ? "Đáp án đúng cho câu tự luận" : (i % 5 === 2) ? ["a", "c"] : "b",
+      userAnswer: (i < 6) ? ((i % 5 === 3) ? "Đáp án đúng cho câu tự luận" : (i % 5 === 2) ? ["a", "c"] : "b") : ((i % 5 === 3) ? "Đáp án sai" : (i % 5 === 2) ? ["a", "d"] : "c"), // 6 câu đầu đúng, còn lại sai
+      isCorrect: i < 6,
+      explanation: `Đây là giải thích chi tiết cho câu hỏi ${i + 1}. Giải thích này giúp người dùng hiểu rõ hơn về đáp án.`
+    }))
   };
 
-  const score = 6; // 6/10 như yêu cầu
+  const { 
+    totalQuestions,
+    correctAnswers,
+    wrongAnswers,
+    unansweredQuestions = 0, // Thêm câu bỏ trống nếu có
+    timeTaken,
+    completedAt,
+    questions
+  } = resultData;
 
-  const renderAnswer = (question) => {
-    switch (question.type) {
-      case 'single':
+  const percentageCorrect = totalQuestions > 0 ? (correctAnswers / totalQuestions) * 100 : 0;
+
+  const getOptionLabel = (index) => String.fromCharCode(65 + index);
+
+  const renderAnswerDetail = (question) => {
+    if (question.type === 'single' || question.type === 'multiple') {
+      return question.options.map((option, index) => {
+        const isCorrectOption = question.type === 'single' 
+          ? option.id === question.correctAnswer 
+          : question.correctAnswer.includes(option.id);
+        
+        const isUserSelected = question.type === 'single'
+          ? option.id === question.userAnswer
+          : Array.isArray(question.userAnswer) && question.userAnswer.includes(option.id);
+
+        let optionClass = styles.optionDetailItem;
+        if (isUserSelected) {
+          optionClass += question.isCorrect ? ` ${styles.userCorrect}` : ` ${styles.userIncorrect}`;
+        }
+        if (isCorrectOption && !isUserSelected) {
+            optionClass += ` ${styles.actualCorrectOption}`;
+        }
+
         return (
-          <div className={styles.answerSection}>
-            <div className={styles.optionsList}>
-              {question.options.map(option => (
-                <div
-                  key={option.id}
-                  className={`${styles.optionItem} ${
-                    option.id === question.correctAnswer ? styles.correctOption : ''
-                  } ${
-                    option.id === question.userAnswer && option.id !== question.correctAnswer ? styles.wrongOption : ''
-                  } ${
-                    option.id === question.userAnswer && option.id === question.correctAnswer ? styles.correctUserOption : ''
-                  }`}
-                >
-                  <span className={styles.optionLetter}>{option.id.toUpperCase()}</span>
-                  <span className={styles.optionText}>{option.text}</span>
-                  {option.id === question.correctAnswer && (
-                    <i className={`bi bi-check-circle ${styles.correctIcon}`}></i>
-                  )}
-                  {option.id === question.userAnswer && option.id !== question.correctAnswer && (
-                    <i className={`bi bi-x-circle ${styles.wrongIcon}`}></i>
-                  )}
-                </div>
-              ))}
-            </div>
+          <div key={option.id} className={optionClass}>
+            <span className={styles.optionDetailLabel}>{getOptionLabel(index)}.</span>
+            <span className={styles.optionDetailText}>{option.text}</span>
+            {isUserSelected && question.isCorrect && <i className={`ri-check-line ${styles.iconCorrect}`}></i>}
+            {isUserSelected && !question.isCorrect && <i className={`ri-close-line ${styles.iconIncorrect}`}></i>}
+            {!isUserSelected && isCorrectOption && <i className={`ri-check-line ${styles.iconActualCorrect}`}></i>} 
           </div>
         );
-
-      case 'multiple':
-        return (
-          <div className={styles.answerSection}>
-            <div className={styles.optionsList}>
-              {question.options.map(option => {
-                const isCorrect = question.correctAnswer.includes(option.id);
-                const isUserSelected = question.userAnswer.includes(option.id);
-                const isCorrectUserSelection = isCorrect && isUserSelected;
-                const isWrongUserSelection = !isCorrect && isUserSelected;
-
-                return (
-                  <div
-                    key={option.id}
-                    className={`${styles.optionItem} ${
-                      isCorrect ? styles.correctOption : ''
-                    } ${
-                      isWrongUserSelection ? styles.wrongOption : ''
-                    } ${
-                      isCorrectUserSelection ? styles.correctUserOption : ''
-                    }`}
-                  >
-                    <span className={styles.optionLetter}>{option.id.toUpperCase()}</span>
-                    <span className={styles.optionText}>{option.text}</span>
-                    {isCorrect && (
-                      <i className={`bi bi-check-circle ${styles.correctIcon}`}></i>
-                    )}
-                    {isWrongUserSelection && (
-                      <i className={`bi bi-x-circle ${styles.wrongIcon}`}></i>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        );
-
-      case 'essay':
-        return (
-          <div
-            className={`${styles.answerSection} ${
-              question.isCorrect ? styles.correctBackground : styles.wrongBackground
-            }`}
-          >
-            <p><strong>Câu trả lời của bạn:</strong></p>
-            <div className={styles.textBox}>{question.userAnswer}</div>
-            <p className="mt-3"><strong>Đáp án đúng:</strong></p>
-            <div className={styles.textBox}>{question.correctAnswer || "Chưa có đáp án mẫu"}</div>
-          </div>
-        );
-
-      default:
-        return null;
+      });
     }
+    if (question.type === 'text' || question.type === 'essay') {
+      return (
+        <div className={styles.essayAnswerDetail}>
+          <p><strong>Câu trả lời của bạn:</strong></p>
+          <div className={`${styles.essayBox} ${question.isCorrect ? styles.userCorrectEssay : styles.userIncorrectEssay}`}>
+            {question.userAnswer || "Bạn chưa trả lời câu này"}
+          </div>
+          {!question.isCorrect && question.correctAnswer && (
+            <>
+              <p className="mt-2"><strong>Đáp án đúng:</strong></p>
+              <div className={`${styles.essayBox} ${styles.actualCorrectEssay}`}>
+                {question.correctAnswer}
+              </div>
+            </>
+          )}
+        </div>
+      );
+    }
+    return null;
   };
 
   return (
     <div className={styles.resultPageContainer}>
-      <Container>
-        <Card className={styles.summaryCard}>
-          <Card.Body>
-            <div className={styles.scoreSection}>
-              <div className={styles.scoreDetails}>
-                <div className={styles.scoreItem}>
-                  <div className={styles.scoreItemLabel}>Tổng số câu hỏi:</div>
-                  <div className={styles.scoreItemValue}>{resultData.totalQuestions}</div>
-                </div>
-                <div className={styles.scoreItem}>
-                  <div className={styles.scoreItemLabel}>Câu trả lời đúng:</div>
-                  <div className={styles.scoreItemValue}>{resultData.correctAnswers}</div>
-                </div>
-                <div className={styles.scoreItem}>
-                  <div className={styles.scoreItemLabel}>Câu trả lời sai:</div>
-                  <div className={styles.scoreItemValue}>{resultData.wrongAnswers}</div>
-                </div>
-                <div className={styles.scoreItem}>
-                  <div className={styles.scoreItemLabel}>Điểm số:</div>
-                  <div className={styles.scoreItemValue}>{score}/10</div>
-                </div>
-                <div className={styles.scoreItem}>
-                  <div className={styles.scoreItemLabel}>Thời gian làm bài:</div>
-                  <div className={styles.scoreItemValue}>{resultData.timeTaken}</div>
-                </div>
-                <div className={styles.scoreItem}>
-                  <div className={styles.scoreItemLabel}>Hoàn thành lúc:</div>
-                  <div className={styles.scoreItemValue}>{resultData.completedAt}</div>
-                </div>
-              </div>
-            </div>
+      <div className={styles.resultHeader}>
+        <h4>THÔNG TIN</h4>
+        <div className={styles.timeInfo}>
+          <span>Thời gian làm: {timeTaken}</span>
+          <span>Thời gian kết thúc bài thi: {completedAt}</span>
+        </div>
+      </div>
 
-            <div className={styles.actionButtons}>
-              <Link to="/dashboard">
-                <Button variant="warning" className={styles.mainButton}>
-                  <i className="bi bi-house-door"></i> Trở về trang chủ
-                </Button>
-              </Link>
-            </div>
-          </Card.Body>
-        </Card>
+      <div className={styles.progressBarContainer}>
+        <ProgressBar now={percentageCorrect} className={styles.customProgressBar} />
+      </div>
 
-        <div className={styles.questionsSection}>
-          {resultData.questions.map((question, index) => (
-            <Card key={question.id} className={styles.questionCard}>
-              <Card.Body>
-                <div className={styles.questionHeader}>
-                  <h5 className={styles.questionTitle}>
-                    Câu {index + 1}: {question.text}
-                  </h5>
-                  <Badge
-                    bg={question.isCorrect ? "success" : "danger"}
-                    className={styles.questionBadge}
-                  >
-                    {question.isCorrect ? "Đúng" : "Sai"}
-                  </Badge>
-                </div>
-                {renderAnswer(question)}
-              </Card.Body>
-            </Card>
+      <div className={styles.statsContainer}>
+        <div className={styles.statItem}>
+          <span className={styles.statLabel}>Hoàn thành</span>
+          <span className={styles.statValue}>{percentageCorrect.toFixed(0)}%</span>
+        </div>
+        <div className={styles.statItem}>
+          <span className={styles.statLabel}>Số câu đúng</span>
+          <span className={`${styles.statValue} ${styles.textSuccess}`}>{correctAnswers}</span>
+        </div>
+        <div className={styles.statItem}>
+          <span className={styles.statLabel}>Số câu sai</span>
+          <span className={`${styles.statValue} ${styles.textDanger}`}>{wrongAnswers}</span>
+        </div>
+        <div className={styles.statItem}>
+          <span className={styles.statLabel}>Số câu bỏ trống</span>
+          <span className={styles.statValue}>{unansweredQuestions}</span>
+        </div>
+      </div>
+
+      <div className={styles.detailTestSection}>
+        <h4>CHI TIẾT PHẦN THI</h4>
+        {/* Nếu có nhiều phần thi, có thể thêm logic render tab ở đây */}
+        {/* <div className={styles.partTabs}>
+          <button className={`${styles.partTab} ${styles.activePart}`}>Phần 1</button>
+        </div> */}
+        
+        <div className={styles.questionNavigation}>
+          {questions.map((q, index) => (
+            <a 
+              href={`#question-${q.id}`} 
+              key={q.id} 
+              className={`${styles.navButton} ${q.isCorrect ? styles.navButtonCorrect : styles.navButtonIncorrect}`}
+            >
+              {index + 1}
+            </a>
           ))}
         </div>
-      </Container>
+      </div>
+
+      <div className={styles.questionsReviewContainer}>
+        {questions.map((question, index) => (
+          <div key={question.id} id={`question-${question.id}`} className={styles.questionReviewItem}>
+            <div className={styles.questionReviewHeader}>
+              <span className={styles.questionReviewNumber}>Câu {index + 1}</span>
+              <span className={`${styles.questionReviewStatus} ${question.isCorrect ? styles.statusCorrect : styles.statusIncorrect}`}>
+                {question.isCorrect ? 'TRẢ LỜI ĐÚNG' : 'TRẢ LỜI SAI'}
+              </span>
+              {/* <span className={styles.answerTypeHint}>Một đáp án</span> */}
+            </div>
+            <p className={styles.questionReviewText}>{question.text}</p>
+            <div className={styles.answerOptionsDetail}>
+              {renderAnswerDetail(question)}
+            </div>
+            {question.explanation && !question.isCorrect && (
+              <div className={styles.explanationBox}>
+                <strong>Giải thích:</strong> {question.explanation}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div className={styles.footerActions}>
+        <Link to="/dashboard">
+          <button className={`${styles.actionButton} ${styles.dashboardButton}`}>Về Dashboard</button>
+        </Link>
+        {/* <button className={`${styles.actionButton} ${styles.reviewButton}`}>Xem lại bài làm</button> */}
+        {/* <button className={`${styles.actionButton} ${styles.newQuizButton}`}>Làm bài mới</button> */}
+      </div>
     </div>
   );
 }
