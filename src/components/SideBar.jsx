@@ -8,6 +8,7 @@ const sidebarLinks = [
   { name: "Dashboard", href: "/dashboard", icon: "ri-dashboard-line" },
   { name: "Tạo quiz", href: "/create", icon: "ri-edit-box-line" },
   { name: "Admin", href: "/admin", icon: "ri-settings-3-line" },
+  { name: "Đã lưu", href:"/save", icon:"ri-bookmark-line"},
   { name: "Giới thiệu", href: "/homepage", icon: "ri-home-3-line" },
   { name: "Đăng xuất", href: "/sign-in", icon: "ri-login-box-line" },
 ];

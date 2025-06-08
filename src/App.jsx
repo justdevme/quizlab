@@ -18,7 +18,7 @@ import CreateEssayQuiz from "./pages/create/CreateEssayQuiz";
 import UserProfilePage from "./pages/user/UserProfilePage";
 import Detail from "./pages/searchquiz/Detail";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
-
+import SaveQuizPage from "./save/SaveQuizPage";
 // Tạo layout có sidebar
 function LayoutWithSidebar() {
   return (
@@ -39,6 +39,7 @@ function LayoutWithSidebar() {
           <Route path="/take-quiz" element={<TakeQuizPage />} />
           <Route path="/preview" element={<PreviewModal quiz={null} />} /> 
           <Route path="/user/profile" element={<UserProfilePage />} />
+          <Route path="/save" element={<SaveQuizPage />} />
         </Routes>
       </div>
     </div>

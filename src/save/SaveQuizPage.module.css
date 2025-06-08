@@ -1,0 +1,146 @@
+.saveQuizPageContainer {
+  background-color: #ffffff; /* Màu nền trắng */
+  color: #333333; /* Màu chữ chính cho nền trắng */
+  min-height: 100vh;
+  padding: 20px 40px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.pageTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #2c3e50; 
+}
+
+.searchBarContainer {
+  display: flex;
+  align-items: center;
+  background-color: #f0f2f5; 
+  border-radius: 8px;
+  padding: 8px 15px;
+  border: 1px solid #dfe1e5; 
+}
+
+.searchInput {
+  flex-grow: 1;
+  background-color: transparent;
+  border: none;
+  color: #333333;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: #888888; 
+}
+
+.quizList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quizItem {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9; 
+  padding: 15px 20px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: 1px solid #e0e0e0;
+  position: relative; 
+}
+
+.quizItem:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.quizItemIconContainer {
+  margin-right: 15px;
+}
+
+.quizItemIcon {
+  font-size: 1.5rem;
+  color: #555555;
+}
+
+.quizItemInfo {
+  flex-grow: 1;
+}
+
+.quizItemTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 5px 0;
+  color: #2c3e50;
+}
+
+.quizItemDetails {
+  font-size: 0.8rem;
+  color: #777777;
+  margin: 0;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+.quizItemActions {
+  position: relative; 
+}
+
+.optionsButton {
+  background: none;
+  border: none;
+  color: #888888;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 1;
+}
+
+.optionsButton:hover {
+  color: #333333;
+}
+
+.optionsMenu {
+  position: absolute;
+  top: 100%; 
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 10;
+  min-width: 120px; 
+  padding: 5px 0;
+}
+
+.menuItem {
+  display: block;
+  width: 100%;
+  padding: 8px 15px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #333333;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  background-color: #f0f0f0;
+}
+
+.noResults {
+  text-align: center;
+  padding: 20px;
+  font-size: 1rem;
+  color: #888888;
+}
+
