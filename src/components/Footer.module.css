@@ -1,0 +1,36 @@
+/* src/components/Footer.module.css */
+
+.footer {
+    background-color: #f8f8f8;
+    padding: 1.5rem 8%;
+    border-top: 1px solid #eaeaea;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .left {
+    margin-bottom: 0.5rem;
+  }
+  
+  .right {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .right a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .right a:hover {
+    color: #000;
+  }
+  

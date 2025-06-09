@@ -1,0 +1,40 @@
+.adminWrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.sidebar {
+  width: 240px;
+  background-color: #fff;
+  color: white;
+  padding: 20px;
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 30px;
+}
+
+.pageTitle {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.statCard {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border: none;
+  background-color: #ffffff;
+}
+
+.dataTable {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.actionCol {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}

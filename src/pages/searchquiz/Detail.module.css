@@ -1,0 +1,758 @@
+.container {
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Light Gray background */
+  font-family: Arial, sans-serif;
+}
+
+/* Dashboard-like Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #ffffff; /* White header */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Softer shadow */
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+}
+
+.pageTitleHeader {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #343a40; /* Dark Gray text */
+  margin: 0;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  background-color: #e9ecef; /* Lighter Gray for search wrapper */
+  border-radius: 20px;
+  padding: 8px 15px;
+}
+
+.searchWrapper i {
+  color: #6c757d; /* Medium Gray icon */
+  margin-right: 10px;
+}
+
+.searchBarHeader {
+  border: none;
+  background: none;
+  outline: none;
+  color: #495057; /* Darker Gray text for input */
+  width: 200px;
+}
+
+.searchBarHeader::placeholder {
+  color: #adb5bd; /* Light Gray placeholder */
+}
+/* End of Dashboard-like Header Styles */
+
+.mainContentWrapper {
+  padding-top: 20px;
+}
+
+.mainContent {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.quizCard {
+  background-color: #ffffff; /* White card */
+  border-radius: 8px; /* Slightly less rounded */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid #dee2e6; /* Light Gray border */
+}
+
+.quizHeader {
+  background-color: #f1de88; /* Yellow accent */
+  padding: 20px;
+  color: #212529; /* Dark text on yellow */
+}
+
+.quizHeaderContent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.quizIconBox {
+  background-color: rgba(255, 255, 255, 0.3); /* Lighter yellow tint */
+  border-radius: 6px;
+  padding: 10px;
+  margin-right: 15px;
+}
+
+.quizTitle {
+  font-size: 22px; /* Slightly smaller */
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #212529;
+}
+
+.quizMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #495057; /* Dark gray for meta text */
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.subjectTag {
+  background-color: rgba(0, 0, 0, 0.05); /* Light gray tag */
+  color: #495057;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.quizStats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.actionSection {
+  padding: 20px;
+  border-bottom: 1px solid #dee2e6; /* Light Gray border */
+}
+
+.actionButtons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive buttons */
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.actionButton {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.purpleButton { /* Will be changed to yellow scheme */
+  background-color: #f1de88; /* Yellow */
+  color: #212529;
+  
+}
+.purpleButton:hover {
+  background-color: #e0a800; /* Darker Yellow */
+  border-color: #d39e00;
+}
+
+
+
+.blueButton {
+  background-color: #318df0; /* Standard Blue - can be adjusted */
+  color: white;
+  border-color: #007bff;
+}
+.blueButton:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+/* Making the "Bắt đầu ôn thi" button more prominent (yellow) */
+.startQuizButton {
+  background-color: #f1de88; /* Yellow */
+  color: #212529;
+}
+
+.startQuizButton:hover {
+  background-color: #e0a800; /* Darker yellow on hover */
+  border-color: #d39e00;
+}
+
+.tabsContainer {
+  border-bottom: 1px solid #dee2e6; /* Light Gray border */
+}
+
+.tabs {
+  display: flex;
+  gap: 24px;
+  padding: 0 20px;
+}
+
+.tab {
+  padding: 14px 4px;
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #6c757d; /* Medium Gray */
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  background: none;
+  border: none;
+}
+
+.tab:hover {
+  color: #ffc107; /* Yellow on hover */
+}
+
+.activeTab {
+  border-bottom-color: #ffc107 !important; /* Yellow */
+  color: #ffc107 !important; /* Yellow */
+}
+
+.tabContent {
+  padding: 20px;
+  background-color: #ffffff; /* White background for tab content */
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #343a40; /* Dark Gray */
+}
+
+.chapterHeader {
+  background-color: #fff3cd; /* Light Yellow */
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ffeeba; /* Lighter Yellow border */
+}
+
+.chapterBadge {
+  background-color: #ffc107; /* Yellow */
+  color: #212529;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.chapterTitle {
+  font-weight: 500;
+  color: #495057; /* Dark Gray */
+}
+
+.questionCard {
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 1px solid #e9ecef; /* Lighter Gray border */
+  border-radius: 6px;
+  background-color: #ffffff; /* White */
+}
+
+.questionTitle {
+  font-weight: 500;
+  color: #343a40; /* Dark Gray */
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.questionText {
+  color: #495057; /* Dark Gray */
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.optionsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.optionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 6px;
+  color: #495057; /* Dark Gray */
+  font-size: 0.9rem;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebarCard {
+  background-color: #ffffff; /* White */
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  border: 1px solid #dee2e6; /* Light Gray border */
+}
+
+.shareButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.shareButton {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #e2da64; /* Yellow border */
+  font-weight: 500;
+  background-color: #f1de88; /* Yellow */
+  color: #212529;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+}
+
+.shareButton:hover {
+    background-color: #f1d580;
+    border-color: #f3de9e;
+}
+
+.likeButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ced4da; /* Medium Gray border */
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  margin-top: 16px;
+}
+
+.likedButton {
+  background-color: #fff3cd; /* Light Yellow */
+  color: #f1de88; 
+}
+
+.notLikedButton {
+  background-color: #e9ecef; /* Lighter Gray */
+  color: #495057; /* Dark Gray text */
+  border-color: #dee2e6; /* Light Gray border */
+}
+
+.notLikedButton:hover {
+    background-color: #ced4da; /* Medium Gray on hover */
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 0;
+  color: #6c757d; /* Medium Gray */
+}
+
+.emptyIcon {
+  width: 50px;
+  height: 50px;
+  color: #adb5bd; /* Light Gray icon */
+  margin: 0 auto 12px;
+}
+
+.loadingState {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
+    font-size: 1.1rem;
+    color: #6c757d; /* Medium Gray */
+}
+
+.saveButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ced4da; /* Medium Gray border */
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  margin-top: 16px;
+}
+
+.savedButton {
+  background-color: #fff3cd;
+  color: #f1de88; 
+}
+
+.notSavedButton {
+  background-color: #e9ecef;
+  color: #495057;
+  border-color: #dee2e6;
+}
+
+.notSavedButton:hover {
+    background-color: #ced4da;
+}
+
+.commentSection {
+  margin-top: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.commentTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.commentBox {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.commentInput {
+  flex: 1;
+  resize: none;
+  height: 80px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+.sendButton {
+  background-color: #FFD54F;
+  color: #333;
+  font-weight: 500;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  height: fit-content;
+}
+
+.sendButton:hover {
+  background-color: #FFCA28;
+}
+
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.commentItem {
+  display: flex;
+  gap: 12px;
+}
+
+.commentAvatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.commentContent {
+  flex: 1;
+}
+
+.commentHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.commentText {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: #fff;
+  padding: 32px;
+  border-radius: 12px;
+  min-width: 540px;
+  min-height: 900px;
+  position: relative;
+}
+
+/* Modal Overlay for Flashcard */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  padding: 36px 40px 28px 40px;
+  min-width: 340px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: modalFadeIn 0.22s;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(40px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.closeModalButton {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  color: #888;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s, color 0.18s;
+}
+.closeModalButton:hover {
+  background: #f1de88;
+  color: #212529;
+}
+
+.flashcardCard {
+  background: #fffbe7;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 32px 36px;
+  min-width: 340px;
+  max-width: 700px;
+  min-height: 120px;
+  max-height: 340px;
+  font-size: 1.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: #212529;
+  text-align: center;
+  margin: 0 auto;
+  word-break: break-word;
+  transition: box-shadow 0.18s;
+}
+.flashcardCard:active, .flashcardCard:focus {
+  box-shadow: 0 4px 18px rgba(241,222,136,0.22);
+}
+.resultListSection {
+  margin-top: 20px;
+}
+
+.resultList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.resultCard {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s;
+}
+
+.resultCard:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.resultInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 15px;
+}
+
+.resultLine {
+  color: #333;
+}
+
+.resultButton {
+  background-color: #007bff;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.resultButton:hover {
+  background-color: #0056b3;
+}
+
+.emptyResultText {
+  font-style: italic;
+  color: #888;
+  margin-top: 10px;
+}
+.questionTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.questionTable th, .questionTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+
+.actionButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.questionTextCell {
+  max-width: 400px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.editButton {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* modalTextarea */
+.modalTextarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+/* cancelButton */
+.cancelButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ced4da; /* Medium Gray border */
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  margin-top: 16px;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modalContent {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+}
+

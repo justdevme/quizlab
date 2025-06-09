@@ -1,0 +1,31 @@
+.adminWrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: #fffbea;
+}
+
+.sidebar {
+  width: 240px;
+  background-color: #fff;
+  padding: 20px;
+  color: white;
+  position: fixed; /* ✅ Fix sidebar cố định */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 30px;
+  margin-left: 240px; /* ✅ Chừa chỗ cho sidebar */
+  background-color: #fffef5;
+  width: calc(100% - 240px); /* tránh tràn */
+}
+.actionCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}

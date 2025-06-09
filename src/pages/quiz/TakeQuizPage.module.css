@@ -1,0 +1,328 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+.takeQuizPageContainer {
+  background-color: #f4f6f8; /* Màu nền sáng hơn một chút */
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quizPageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 1100px; /* Tăng max-width để chứa cả panel */
+}
+
+.topicSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topicName {
+  font-size: 1.2rem; /* Tăng kích thước */
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.timerSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.05rem;
+  color: #34495e;
+  background-color: #eaf0f6;
+  padding: 8px 14px;
+  border-radius: 20px; /* Bo tròn hơn */
+}
+
+.timerIcon {
+  font-size: 1.4rem;
+  color: #3498db;
+}
+
+/* Main Quiz Layout */
+.quizLayout {
+  display: flex;
+  width: 100%;
+  max-width: 1100px; /* Phù hợp với header */
+  gap: 25px; /* Khoảng cách giữa content và panel */
+}
+
+.quizContent {
+  flex-grow: 1; /* Phần nội dung quiz chiếm phần lớn không gian */
+  display: flex;
+  flex-direction: column;
+}
+
+.questionDisplayCard {
+  background-color: #ffffff;
+  padding: 25px 30px; /* Tăng padding */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  margin-bottom: 20px;
+}
+
+.questionHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px; /* Tăng khoảng cách */
+  margin-bottom: 18px;
+}
+
+.questionNumber {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffd95a; /* Màu vàng nổi bật hơn */
+  color: #333; /* Chữ đậm hơn trên nền vàng */
+  padding: 8px 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  font-weight: 700; /* Đậm hơn */
+  font-size: 1rem;
+  line-height: 1.2;
+  flex-shrink: 0; /* Không co lại */
+}
+
+.questionNumber div:first-child {
+  font-size: 1.2rem;
+}
+
+.totalQuestions {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  border-top: 1px solid rgba(51, 51, 51, 0.3);
+  padding-top: 3px;
+  margin-top: 3px;
+  width: 100%;
+  text-align: center;
+}
+
+.questionText {
+  font-size: 1.15rem; /* Điều chỉnh kích thước */
+  color: #34495e;
+  font-weight: 500;
+  line-height: 1.65;
+  flex-grow: 1;
+  padding-top: 8px; /* Căn chỉnh tốt hơn */
+}
+
+.optionsContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+@media (min-width: 768px) {
+  .optionsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.optionButton {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  padding: 14px 18px;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  width: 100%;
+  font-size: 1rem;
+  color: #374151;
+}
+
+.optionButton:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.optionButton.selectedOption {
+  background-color: #ffd95a; 
+  border-color: #fcc521;
+  color: #333;
+  font-weight: 500;
+}
+
+.optionIndex {
+  background-color: #e5e7eb;
+  color: #4b5563;
+  padding: 7px 11px;
+  border-radius: 6px;
+  margin-right: 15px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.optionButton.selectedOption .optionIndex {
+  background-color: rgba(51,51,51,0.15);
+  color: #333;
+}
+
+.textAnswerInput {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #374151;
+  resize: vertical; /* Cho phép thay đổi chiều cao */
+  min-height: 80px;
+}
+
+.textAnswerInput:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+.navigationButtons {
+  display: flex;
+  justify-content: space-between; /* Đẩy nút về 2 phía */
+  align-items: center;
+  margin-top: 10px; /* Giảm margin top */
+}
+
+.navButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px; /* Bo tròn hơn */
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.prevButton {
+  background-color: #e5e7eb;
+  color: #4b5563;
+}
+
+.prevButton:hover:not(:disabled) {
+  background-color: #d1d5db;
+}
+
+.nextButton {
+  background-color: #e6dd68;
+  color: white;
+}
+
+
+.navButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Question Navigation Panel */
+.questionNavigationPanel {
+  width: 280px; /* Độ rộng cố định cho panel */
+  flex-shrink: 0; /* Không co lại */
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 120px); /* Giới hạn chiều cao, tùy chỉnh nếu cần */
+}
+
+.panelTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eaf0f6;
+  text-align: center;
+}
+
+.questionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); /* Responsive grid */
+  gap: 10px;
+  margin-bottom: 20px;
+  overflow-y: auto; /* Cho phép cuộn nếu nhiều câu hỏi */
+  flex-grow: 1; /* Chiếm không gian còn lại */
+  padding-right: 5px; /* Khoảng đệm cho thanh cuộn */
+}
+
+.questionNavButton {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Giữ hình vuông */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #f9fafb;
+  color: #4b5563;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.questionNavButton:hover {
+  background-color: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+.questionNavButton.currentQuestionNav {
+  background-color: #ffd95a;
+  border-color: #fcc521;
+  color: #333;
+  font-weight: 700;
+}
+
+.questionNavButton.answeredQuestionNav {
+  background-color: #f0f198; /* Màu  cho câu đã trả lời */
+
+}
+
+.questionNavButton.answeredQuestionNav.currentQuestionNav {
+  /* Ưu tiên màu current nếu vừa answered vừa current */
+  background-color: #ffd95a;
+  border-color: #fcc521;
+  color: #333;
+}
+
+.submitButtonPanel {
+  background-color: #e6dd68; /* Màu cho nút nộp bài */
+  color: white;
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 1rem;
+  margin-top: auto; /* Đẩy nút xuống dưới cùng */
+}
+
+
+
+.loadingState {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    font-size: 1.2rem;
+    color: #555;
+}

@@ -1,0 +1,214 @@
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background-color: white;
+  border-right: 1px solid #e0e0e0;
+  position: fixed; 
+  top: 0;          
+  left: 0;         
+  display: flex;        
+  flex-direction: column; 
+}
+  
+.navLink {
+  color: #333;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.navLink:hover {
+  background-color: #f8f9fa;
+  color: #000;
+}
+
+.active {
+  background-color: #fff3cd;
+  color: #000;
+  font-weight: 600;
+}
+
+/* User Profile Section - Thiết kế mới */
+.userProfileSection {
+  margin-top: auto;
+  padding: 15px 0;
+  border-top: 1px solid #e9ecef;
+}
+
+.userProfileLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.userProfileCard {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.userProfileCard:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.avatarContainer {
+  position: relative;
+  margin-right: 12px;
+}
+
+.userAvatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.userProfileCard:hover .userAvatar {
+  transform: scale(1.05);
+}
+
+.onlineIndicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  background-color: #28a745;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.userInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.userName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userRole {
+  font-size: 0.8rem;
+  color: #6c757d;
+  font-weight: 400;
+}
+
+.profileArrow {
+  color: #6c757d;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.userProfileCard:hover .profileArrow {
+  transform: translateX(3px);
+  color: #333;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+  .userProfileCard {
+    padding: 10px 12px;
+  }
+  
+  .userAvatar {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .userName {
+    font-size: 0.9rem;
+  }
+  
+  .userRole {
+    font-size: 0.75rem;
+  }
+}
+
+/* Legacy styles - giữ lại để tương thích */
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.username {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.sidebarAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.profileLink {
+  text-decoration: none;
+}
+
+.userInfoContainer {
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid #e9ecef;
+}
+
+.logo {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+.userName {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.profileLink {
+  text-decoration: none;
+}
+
+.userInfoContainer {
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid #e9ecef;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
